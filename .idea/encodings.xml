@@ -5,8 +5,11 @@
     <file url="file://$PROJECT_DIR$/.eslintrc" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/.gitignore" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/package.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/actions/courseActions.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/components/courses/CoursesPage.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/index.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/index.test.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/reducers/courseReducers.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tools/srcServer.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tools/startMessage.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tools/testSetup.js" charset="UTF-8" />
