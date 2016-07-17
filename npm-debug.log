@@ -1,49 +1,45 @@
 0 info it worked if it ends with ok
 1 verbose cli [ 'e:\\Program Files\\nodejs\\node.exe',
 1 verbose cli   'e:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
-1 verbose cli   'start' ]
+1 verbose cli   'run-script',
+1 verbose cli   'lint:watch' ]
 2 info using npm@3.3.6
 3 info using node@v5.0.0
-4 verbose run-script [ 'prestart', 'start', 'poststart' ]
-5 info lifecycle react_and_redux@1.0.0~prestart: react_and_redux@1.0.0
-6 verbose lifecycle react_and_redux@1.0.0~prestart: unsafe-perm in lifecycle true
-7 verbose lifecycle react_and_redux@1.0.0~prestart: PATH: e:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;e:\pluralsight_courses\react_and_redux\node_modules\.bin;c:\Users\123\bin;.;E:\Program Files (x86)\Git\local\bin;E:\Program Files (x86)\Git\mingw\bin;E:\Program Files (x86)\Git\bin;c:\ProgramData\Oracle\Java\javapath;c:\Windows\system32;c:\Windows;c:\Windows\system32\wbem;c:\Program Files (x86)\PC Connectivity Solution;c:\PROGRA~2\Borland\CBUILD~1\Bin;c:\PROGRA~2\Borland\CBUILD~1\Projects\Bpl;c:\Program Files (x86)\Borland\Delphi7\Bin;c:\Program Files (x86)\Borland\Delphi7\Projects\Bpl;c:\Windows\System32\WindowsPowerShell\v1.0;c:\Program Files (x86)\Common Files\Autodesk Shared;c:\Program Files (x86)\Microsoft SQL Server\90\Tools\binn;e:\Program Files\nodejs;e:\Program Files (x86)\Altium Designer Summer 08\System;c:\Program Files (x86)\Common Files\Autodesk Shared\;c:\Program Files\cURL\bin;E:\Program Files (x86)\Git\cmd;e:\mongo\mongodb-win32-x86_64-2008plus-2.6.7\bin;e:\Program Files\nodejs\;c:\Program Files (x86)\Skype\Phone\;c:\Users\123\AppData\Roaming\npm
-8 verbose lifecycle react_and_redux@1.0.0~prestart: CWD: e:\pluralsight_courses\react_and_redux
-9 silly lifecycle react_and_redux@1.0.0~prestart: Args: [ '/d /s /c', 'babel-node tools/startMessage.js' ]
-10 silly lifecycle react_and_redux@1.0.0~prestart: Returned: code: 0  signal: null
-11 info lifecycle react_and_redux@1.0.0~start: react_and_redux@1.0.0
-12 verbose lifecycle react_and_redux@1.0.0~start: unsafe-perm in lifecycle true
-13 verbose lifecycle react_and_redux@1.0.0~start: PATH: e:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;e:\pluralsight_courses\react_and_redux\node_modules\.bin;c:\Users\123\bin;.;E:\Program Files (x86)\Git\local\bin;E:\Program Files (x86)\Git\mingw\bin;E:\Program Files (x86)\Git\bin;c:\ProgramData\Oracle\Java\javapath;c:\Windows\system32;c:\Windows;c:\Windows\system32\wbem;c:\Program Files (x86)\PC Connectivity Solution;c:\PROGRA~2\Borland\CBUILD~1\Bin;c:\PROGRA~2\Borland\CBUILD~1\Projects\Bpl;c:\Program Files (x86)\Borland\Delphi7\Bin;c:\Program Files (x86)\Borland\Delphi7\Projects\Bpl;c:\Windows\System32\WindowsPowerShell\v1.0;c:\Program Files (x86)\Common Files\Autodesk Shared;c:\Program Files (x86)\Microsoft SQL Server\90\Tools\binn;e:\Program Files\nodejs;e:\Program Files (x86)\Altium Designer Summer 08\System;c:\Program Files (x86)\Common Files\Autodesk Shared\;c:\Program Files\cURL\bin;E:\Program Files (x86)\Git\cmd;e:\mongo\mongodb-win32-x86_64-2008plus-2.6.7\bin;e:\Program Files\nodejs\;c:\Program Files (x86)\Skype\Phone\;c:\Users\123\AppData\Roaming\npm
-14 verbose lifecycle react_and_redux@1.0.0~start: CWD: e:\pluralsight_courses\react_and_redux
-15 silly lifecycle react_and_redux@1.0.0~start: Args: [ '/d /s /c',
-15 silly lifecycle   'npm-run-all --parallel open:src lint:watch test:watch' ]
-16 silly lifecycle react_and_redux@1.0.0~start: Returned: code: 1  signal: null
-17 info lifecycle react_and_redux@1.0.0~start: Failed to exec start script
-18 verbose stack Error: react_and_redux@1.0.0 start: `npm-run-all --parallel open:src lint:watch test:watch`
-18 verbose stack Exit status 1
-18 verbose stack     at EventEmitter.<anonymous> (e:\Program Files\nodejs\node_modules\npm\lib\utils\lifecycle.js:233:16)
-18 verbose stack     at emitTwo (events.js:87:13)
-18 verbose stack     at EventEmitter.emit (events.js:172:7)
-18 verbose stack     at ChildProcess.<anonymous> (e:\Program Files\nodejs\node_modules\npm\lib\utils\spawn.js:24:14)
-18 verbose stack     at emitTwo (events.js:87:13)
-18 verbose stack     at ChildProcess.emit (events.js:172:7)
-18 verbose stack     at maybeClose (internal/child_process.js:818:16)
-18 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
-19 verbose pkgid react_and_redux@1.0.0
-20 verbose cwd e:\pluralsight_courses\react_and_redux
-21 error Windows_NT 6.1.7601
-22 error argv "e:\\Program Files\\nodejs\\node.exe" "e:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "start"
-23 error node v5.0.0
-24 error npm  v3.3.6
-25 error code ELIFECYCLE
-26 error react_and_redux@1.0.0 start: `npm-run-all --parallel open:src lint:watch test:watch`
-26 error Exit status 1
-27 error Failed at the react_and_redux@1.0.0 start script 'npm-run-all --parallel open:src lint:watch test:watch'.
-27 error This is most likely a problem with the react_and_redux package,
-27 error not with npm itself.
-27 error Tell the author that this fails on your system:
-27 error     npm-run-all --parallel open:src lint:watch test:watch
-27 error You can get their info via:
-27 error     npm owner ls react_and_redux
-27 error There is likely additional logging output above.
-28 verbose exit [ 1, true ]
+4 verbose run-script [ 'prelint:watch', 'lint:watch', 'postlint:watch' ]
+5 info lifecycle react_and_redux@1.0.0~prelint:watch: react_and_redux@1.0.0
+6 silly lifecycle react_and_redux@1.0.0~prelint:watch: no script for prelint:watch, continuing
+7 info lifecycle react_and_redux@1.0.0~lint:watch: react_and_redux@1.0.0
+8 verbose lifecycle react_and_redux@1.0.0~lint:watch: unsafe-perm in lifecycle true
+9 verbose lifecycle react_and_redux@1.0.0~lint:watch: PATH: e:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;e:\pluralsight_courses\react_and_redux\node_modules\.bin;e:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;e:\pluralsight_courses\react_and_redux\node_modules\.bin;c:\Users\123\bin;.;E:\Program Files (x86)\Git\local\bin;E:\Program Files (x86)\Git\mingw\bin;E:\Program Files (x86)\Git\bin;c:\ProgramData\Oracle\Java\javapath;c:\Windows\system32;c:\Windows;c:\Windows\system32\wbem;c:\Program Files (x86)\PC Connectivity Solution;c:\PROGRA~2\Borland\CBUILD~1\Bin;c:\PROGRA~2\Borland\CBUILD~1\Projects\Bpl;c:\Program Files (x86)\Borland\Delphi7\Bin;c:\Program Files (x86)\Borland\Delphi7\Projects\Bpl;c:\Windows\System32\WindowsPowerShell\v1.0;c:\Program Files (x86)\Common Files\Autodesk Shared;c:\Program Files (x86)\Microsoft SQL Server\90\Tools\binn;e:\Program Files\nodejs;e:\Program Files (x86)\Altium Designer Summer 08\System;c:\Program Files (x86)\Common Files\Autodesk Shared\;c:\Program Files\cURL\bin;E:\Program Files (x86)\Git\cmd;e:\mongo\mongodb-win32-x86_64-2008plus-2.6.7\bin;e:\Program Files\nodejs\;c:\Program Files (x86)\Skype\Phone\;c:\Users\123\AppData\Roaming\npm
+10 verbose lifecycle react_and_redux@1.0.0~lint:watch: CWD: e:\pluralsight_courses\react_and_redux
+11 silly lifecycle react_and_redux@1.0.0~lint:watch: Args: [ '/d /s /c', 'npm run lint -- --watch' ]
+12 silly lifecycle react_and_redux@1.0.0~lint:watch: Returned: code: 1  signal: null
+13 info lifecycle react_and_redux@1.0.0~lint:watch: Failed to exec lint:watch script
+14 verbose stack Error: react_and_redux@1.0.0 lint:watch: `npm run lint -- --watch`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (e:\Program Files\nodejs\node_modules\npm\lib\utils\lifecycle.js:233:16)
+14 verbose stack     at emitTwo (events.js:87:13)
+14 verbose stack     at EventEmitter.emit (events.js:172:7)
+14 verbose stack     at ChildProcess.<anonymous> (e:\Program Files\nodejs\node_modules\npm\lib\utils\spawn.js:24:14)
+14 verbose stack     at emitTwo (events.js:87:13)
+14 verbose stack     at ChildProcess.emit (events.js:172:7)
+14 verbose stack     at maybeClose (internal/child_process.js:818:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+15 verbose pkgid react_and_redux@1.0.0
+16 verbose cwd e:\pluralsight_courses\react_and_redux
+17 error Windows_NT 6.1.7601
+18 error argv "e:\\Program Files\\nodejs\\node.exe" "e:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run-script" "lint:watch"
+19 error node v5.0.0
+20 error npm  v3.3.6
+21 error code ELIFECYCLE
+22 error react_and_redux@1.0.0 lint:watch: `npm run lint -- --watch`
+22 error Exit status 1
+23 error Failed at the react_and_redux@1.0.0 lint:watch script 'npm run lint -- --watch'.
+23 error This is most likely a problem with the react_and_redux package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     npm run lint -- --watch
+23 error You can get their info via:
+23 error     npm owner ls react_and_redux
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]
