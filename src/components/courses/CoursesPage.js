@@ -24,10 +24,10 @@ class CoursesPage extends React.Component {
 	}
 }
 
-CoursesPage.propTypes = {
+/*CoursesPage.propTypes = {
   courses: React.PropTypes.array.isRequired,
   actions: React.PropTypes.object.isRequired
-};
+};*/
 
 function mapStateToProps(state, ownProps) {
   return {

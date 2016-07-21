@@ -102,6 +102,15 @@ class CourseApi {
       }, delay);
     });
   }
+
+  static deleteCourses() {
+    return new Promise( (resolve, reject) => {
+      setTimeout( () => {
+        courses.splice(0, courses.length);
+        resolve( Object.assign([], courses) );
+      }, delay);
+    } );
+  }
 }
 
 export default CourseApi;
