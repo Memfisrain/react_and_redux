@@ -12,8 +12,6 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 const store = configureStore();
 store.dispatch(loadCourses());
 
-setTimeout(() => {store.dispatch(deleteCourses())}, 2000);
-
 render(
 	<Provider store={store}>
 		<Router history={browserHistory} routes={routes} />
