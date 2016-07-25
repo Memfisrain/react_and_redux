@@ -111,6 +111,22 @@ class CourseApi {
       }, delay);
     } );
   }
+
+  static getCourse(id) {
+    return new Promise((resolve, reject) => {
+      var [course] = courses.filter((course) => {
+        return course.id === id;
+      });
+
+      setTimeout(() => {
+        if (course) {
+          resolve(course);
+        } else {
+          reject();
+        }
+      }, delay);
+    });
+  }
 }
 
 export default CourseApi;
