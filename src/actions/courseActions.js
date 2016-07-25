@@ -10,6 +10,7 @@ export function deleteCoursesSuccess(courses) {
 }
 
 export function loadCourseSuccess(course) {
+  debugger;
   return {type: types.LOAD_COURSE_SUCCESS, course}
 }
 

@@ -9,7 +9,12 @@ import * as actions from "../../actions/courseActions";
 class ManageCoursePage extends React.Component {
   constructor(props, context) {
     super(props, context);
+
+    this.state = {
+      course: this.props.actions.loadCourse(this.props.params.id)
+    };
   };
+
 
   render() {
     return (
