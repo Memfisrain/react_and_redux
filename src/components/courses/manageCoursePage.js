@@ -5,30 +5,46 @@ import React from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import * as actions from "../../actions/courseActions";
+import CourseFOrm from "./CourseForm";
 
 class ManageCoursePage extends React.Component {
   constructor(props, context) {
     super(props, context);
 
+    var courseId = this.props.params.id,
+      [course] = this.props.courses.filter((course) => {
+        return course.id === courseId;
+      });
+
     this.state = {
-      course: this.props.actions.loadCourse(this.props.params.id)
-    };
+      course: course,
+      authors = 
+    }
   };
+
+  static onChange(course) {
+
+  }
+
+  static onSave(course) {
+
+  }
 
 
   render() {
     return (
-      <h1>
-        Manage Course
-      </h1>
+      <div>
+        <h1>Manage Course</h1>
+        <CourseForm 
+      </div>
     );
   }
 }
 
 function mapStateToProps(state, ownProps) {
-  debugger;
   return {
-    state: state
+    courses: state.courses,
+    authors: state.authors
   };
 }
 

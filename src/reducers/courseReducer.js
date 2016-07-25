@@ -9,7 +9,7 @@ export default function courseReducer(state = [], action) {
     	return action.courses;
 
     case types.LOAD_COURSE_SUCCESS:
-      return action.course;
+    	return action.course;
 
     default:
       return state;
