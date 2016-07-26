@@ -34,7 +34,6 @@ class ManageCoursePage extends React.Component {
 
     return (
       <div>
-        <h1>Manage Course</h1>
         <CourseForm course={course}
                     allAuthors={this.state.authors}
                     errors={this.state.errors}

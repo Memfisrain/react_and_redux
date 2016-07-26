@@ -6,6 +6,7 @@ import SelectInput from "../common/SelectInput";
 const CourseForm = ({course, allAuthors, errors, onChange, onSave}) => {
 	return (
 		<form>
+      <h1>Manage Course</h1>
 			<TextInput
 				name="title"
 				label="Title"

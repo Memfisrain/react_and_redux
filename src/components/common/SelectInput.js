@@ -5,7 +5,7 @@ const SelectInput = ({name, label, value, defaultOption, options, onChange, erro
   if (error) {
     wrapperCls += " has-error";
   }
-  
+
   let AuthorOption = function(author) {
     return (
       <option key={author.id} value={author.id}>{author.firstName + ' ' + author.lastName}</option>
