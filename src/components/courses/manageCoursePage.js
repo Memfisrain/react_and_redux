@@ -5,45 +5,53 @@ import React from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import * as actions from "../../actions/courseActions";
-import CourseFOrm from "./CourseForm";
+import CourseForm from "./CourseForm";
 
 class ManageCoursePage extends React.Component {
   constructor(props, context) {
     super(props, context);
 
-    var courseId = this.props.params.id,
-      [course] = this.props.courses.filter((course) => {
-        return course.id === courseId;
-      });
-
     this.state = {
-      course: course,
-      authors = 
-    }
-  };
+      course: Object.assign({}, this.props.course),
+      errors: Object.assign({}, this.props.errors),
+      authors: [...this.props.authors]
+    };
 
-  static onChange(course) {
+    this.onChange = this.onChange.bind(this);
+    this.onSave = this.onSave.bind(this);
+  }
+
+  onChange(course) {
 
   }
 
-  static onSave(course) {
+  onSave(course) {
 
   }
-
 
   render() {
+    let {course} = this.props;
+
     return (
       <div>
         <h1>Manage Course</h1>
-        <CourseForm 
+        <CourseForm course={course}
+                    allAuthors={this.state.authors}
+                    errors={this.state.errors}
+                    onChange={this.onChange}
+                    onSave={this.onSave} />
       </div>
     );
   }
 }
 
 function mapStateToProps(state, ownProps) {
+  let course = {title: "", author: "", length: "", category: ""};
+  let errors =  {title: "", category: "", authorId: "", length: ""};
+
   return {
-    courses: state.courses,
+    course,
+    errors,
     authors: state.authors
   };
 }

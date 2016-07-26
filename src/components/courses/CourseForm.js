@@ -32,9 +32,17 @@ const CourseForm = ({course, allAuthors, errors, onChange, onSave}) => {
 				value={course.length}
 				onChange={onChange}
 				error={errors.length} />
-      <input type="submit" value="Save" onClick={onSave} />
+      <input className="btn btn-primary" type="submit" value="Save" onClick={onSave} />
 		</form>
 	);
+};
+
+CourseForm.propTypes = {
+  course: React.PropTypes.object.isRequired,
+  allAuthors: React.PropTypes.array.isRequired,
+  errors: React.PropTypes.object.isRequired,
+  onChange: React.PropTypes.func.isRequired,
+  onSave: React.PropTypes.func.isRequired
 };
 
 export default CourseForm
