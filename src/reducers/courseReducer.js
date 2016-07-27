@@ -1,18 +1,6 @@
 import * as types from "../actions/actionTypes";
 import initialState from "../store/initialState";
 
-const updateCourses = function(courses, course) {
-	let coursesCopy = [...courses];
-
-	if (coursesCopy.indexOf(course) !== -1) {
-		coursesCopy.splice(coursesCopy.indexOf(course), 1, course);
-	} else {
-		coursesCopy.push(course);
-	}
-
-	return coursesCopy;
-};
-
 export default function courseReducer(courses = initialState.courses, action) {
   switch(action.type) {
     case types.LOAD_COURSES_SUCCESS:
