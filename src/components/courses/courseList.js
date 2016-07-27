@@ -12,22 +12,19 @@ function createCourse(course) {
 
 export default (obj) => {
   return (
-    <div>
-      <h1>Courses</h1>
-      <table className="table">
-        <thead>
-        <tr>
-          <th></th>
-          <th>Title</th>
-          <th>Author</th>
-          <th>Length</th>
-          <th>Category</th>
-        </tr>
-        </thead>
-        <tbody>
-          {obj.courses.map(createCourse)}
-        </tbody>
-      </table>
-    </div>
+    <table className="table">
+      <thead>
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Length</th>
+        <th>Category</th>
+      </tr>
+      </thead>
+      <tbody>
+      {obj.courses.map(createCourse)}
+      </tbody>
+    </table>
   );
 }

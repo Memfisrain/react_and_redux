@@ -11,7 +11,7 @@ const updateCourses = function(courses, course) {
 	}
 
 	return coursesCopy;
-}
+};
 
 export default function courseReducer(courses = initialState.courses, action) {
   switch(action.type) {
@@ -24,8 +24,17 @@ export default function courseReducer(courses = initialState.courses, action) {
     case types.LOAD_COURSE_SUCCESS:
     	return action.course;
 
-    case types.SAVE_COURSE_SUCCESS:
-    	return updateCourses(courses, action.course);
+    case types.UPDATE_COURSE_SUCCESS:
+    	return [
+        ...courses.filter(course => course.id !== action.course.id),
+        Object.assign({}, action.course)
+      ];
+
+    case types.ADD_COURSE_SUCCESS:
+      return [
+        ...courses,
+        Object.assign({}, action.course)
+      ];
 
     default:
       return courses;
