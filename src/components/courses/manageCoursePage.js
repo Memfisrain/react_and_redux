@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import * as actions from "../../actions/courseActions";
 import CourseForm from "./CourseForm";
+import toastr from "toastr";
 
 class ManageCoursePage extends React.Component {
   constructor(props, context) {
@@ -14,7 +15,8 @@ class ManageCoursePage extends React.Component {
     this.state = {
       course: Object.assign({}, props.course),
       errors: Object.assign({}, props.errors),
-      authors: [...props.authors]
+      authors: [...props.authors],
+      buttonDisabled: false
     };
 
     this.updateCourseState = this.updateCourseState.bind(this);
@@ -36,7 +38,25 @@ class ManageCoursePage extends React.Component {
 
   onSave(e) {
     e.preventDefault();
-    this.props.actions.saveCourse(this.state.course);
+
+    this.setState({
+      buttonDisabled: true
+    });
+
+    this.props.actions
+      .saveCourse(this.state.course)
+      .then(() => this.redirect())
+      .catch(err => this.onSaveFailure(err));
+  }
+
+  onSaveFailure(err) {
+    toastr.error(err || "Error occured");
+    this.setState({buttonDisabled: false});
+  }
+
+  redirect() {
+    toastr.success("Course successfully saved");
+    this.setState({buttonDisabled: false});
     this.context.router.push("/courses");
   }
 
@@ -49,7 +69,8 @@ class ManageCoursePage extends React.Component {
                     allAuthors={this.state.authors}
                     errors={this.state.errors}
                     onChange={this.updateCourseState}
-                    onSave={this.onSave} />
+                    onSave={this.onSave}
+                    buttonDisabled={this.state.buttonDisabled}/>
       </div>
     );
   }
@@ -68,7 +89,7 @@ function getCourseById(courses, id) {
 function mapStateToProps(state, ownProps) {
   let courseId = ownProps.params.id;
   let course = {title: "", authorId: "", length: "", category: ""};
-  let errors =  {title: "", category: "", authorId: "", length: ""};
+  let errors = {title: "", category: "", authorId: "", length: ""};
 
   if (courseId && state.courses.length) {
     let courseById = getCourseById(state.courses, courseId);

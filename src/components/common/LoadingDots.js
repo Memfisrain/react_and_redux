@@ -23,7 +23,7 @@ class LoadingDots extends React.Component {
 	    	} else {
 	    		this.clearInterval();
 	    	}
-	    }  
+	    }
 	}
 
 	setInterval() {
@@ -55,13 +55,19 @@ class LoadingDots extends React.Component {
 			dots -= 1;
 		}
 
-		return <span style={{display: (this.state.show? 'block' : 'none')}}>{text} </span>
+		return <span style={{display: (this.state.show? '' : 'none')}}>{text} </span>
 	}
 }
 
-LoadingDots.defaultProps = { 
+LoadingDots.propTypes = {
+  duration: React.PropTypes.number,
+  dots: React.PropTypes.number,
+  show: React.PropTypes.bool
+};
+
+LoadingDots.defaultProps = {
 	duration: 300, dots: 3, show: false
-}
+};
 
 function mapStateToProps(state, ownProps) {
 	return {

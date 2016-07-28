@@ -6,9 +6,11 @@
     <file url="file://$PROJECT_DIR$/.gitignore" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/package.json" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/actions/actionTypes.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/actions/ajaxStatusActions.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/actions/authorActions.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/actions/courseActions.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/api/mockCourseApi.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/components/common/LoadingDots.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/components/common/SelectInput.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/components/common/TextInput.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/components/courses/CourseForm.js" charset="UTF-8" />
@@ -18,6 +20,7 @@
     <file url="file://$PROJECT_DIR$/src/components/courses/manageCoursePage.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/index.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/index.test.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/reducers/ajaxStatusReducer.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/reducers/authorReducer.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/reducers/courseReducer.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/reducers/index.js" charset="UTF-8" />
