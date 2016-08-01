@@ -13,6 +13,8 @@
     <file url="file://$PROJECT_DIR$/src/components/common/LoadingDots.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/components/common/SelectInput.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/components/common/TextInput.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/components/courses/CourseForm.Enzyme.test.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/components/courses/CourseForm.ReactTestUtils.test.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/components/courses/CourseForm.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/components/courses/CoursesPage.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/components/courses/courseList.js" charset="UTF-8" />

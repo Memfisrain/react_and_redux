@@ -16,7 +16,7 @@ class ManageCoursePage extends React.Component {
       course: Object.assign({}, props.course),
       errors: Object.assign({}, props.errors),
       authors: [...props.authors],
-      buttonDisabled: false
+      saving: false
     };
 
     this.updateCourseState = this.updateCourseState.bind(this);
@@ -40,7 +40,7 @@ class ManageCoursePage extends React.Component {
     e.preventDefault();
 
     this.setState({
-      buttonDisabled: true
+      saving: true
     });
 
     this.props.actions
@@ -51,12 +51,12 @@ class ManageCoursePage extends React.Component {
 
   onSaveFailure(err) {
     toastr.error(err || "Error occured");
-    this.setState({buttonDisabled: false});
+    this.setState({saving: false});
   }
 
   redirect() {
     toastr.success("Course successfully saved");
-    this.setState({buttonDisabled: false});
+    this.setState({saving: false});
     this.context.router.push("/courses");
   }
 
@@ -70,7 +70,7 @@ class ManageCoursePage extends React.Component {
                     errors={this.state.errors}
                     onChange={this.updateCourseState}
                     onSave={this.onSave}
-                    buttonDisabled={this.state.buttonDisabled}/>
+                    saving={this.state.saving}/>
       </div>
     );
   }
