@@ -8,7 +8,7 @@ const SelectInput = ({name, label, value, defaultOption, options, onChange, erro
 
   let AuthorOption = function(author) {
     return (
-      <option key={author.id} value={author.id}>{author.firstName + ' ' + author.lastName}</option>
+      <option key={author.id} value={author.id}>{author.text}</option>
     );
   };
 
@@ -24,6 +24,16 @@ const SelectInput = ({name, label, value, defaultOption, options, onChange, erro
       </select>
     </div>
   );
+};
+
+SelectInput.propTypes = {
+  name: React.PropTypes.string.isRequired,
+  label: React.PropTypes.string.isRequired,
+  onChange: React.PropTypes.func.isRequired,
+  defaultOption: React.PropTypes.string,
+  value: React.PropTypes.string,
+  error: React.PropTypes.string,
+  options: React.PropTypes.arrayOf(React.PropTypes.object)
 };
 
 export default SelectInput

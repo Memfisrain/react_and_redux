@@ -4,6 +4,7 @@
     <file url="file://$PROJECT_DIR$/.babelrc" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/.eslintrc" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/.gitignore" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code_wars.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/package.json" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/actions/actionTypes.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/actions/ajaxStatusActions.js" charset="UTF-8" />
@@ -17,6 +18,7 @@
     <file url="file://$PROJECT_DIR$/src/components/courses/CourseForm.ReactTestUtils.test.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/components/courses/CourseForm.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/components/courses/CoursesPage.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/components/courses/ManageCoursePage.test.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/components/courses/courseList.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/components/courses/courseListRow.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/components/courses/manageCoursePage.js" charset="UTF-8" />
@@ -27,6 +29,8 @@
     <file url="file://$PROJECT_DIR$/src/reducers/courseReducer.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/reducers/index.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/routes.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/selectors/selectors.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/selectors/selectors.test.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/store/configureStore.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/store/initialState.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tools/srcServer.js" charset="UTF-8" />

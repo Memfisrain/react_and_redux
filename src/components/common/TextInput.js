@@ -11,6 +11,7 @@ const TextInput = function ({error, onChange, value, name, label}) {
 			<div className={wrapperCls}>
         <label htmlFor={name}>{label}</label>
         <input id={name} className="form-control" name={name} value={value} onChange={onChange} />
+        {error && error.length && <span className="help-block">{error}</span>}
       </div>
 	);
 };
