@@ -24,6 +24,7 @@
     <file url="file://$PROJECT_DIR$/src/components/courses/courseList.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/components/courses/courseListRow.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/components/courses/manageCoursePage.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/index.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/index.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/index.test.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/reducers/ajaxStatusReducer.js" charset="UTF-8" />
@@ -34,11 +35,17 @@
     <file url="file://$PROJECT_DIR$/src/routes.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/selectors/selectors.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/selectors/selectors.test.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/store/configureStore.dev.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/store/configureStore.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/store/configureStore.prod.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/store/initialState.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/store/store.test.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tools/build.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tools/buildHtml.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tools/distServer.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tools/srcServer.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tools/startMessage.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tools/testSetup.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/webpack.config.prod.js" charset="UTF-8" />
   </component>
 </project>
