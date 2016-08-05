@@ -36,6 +36,7 @@
     <file url="file://$PROJECT_DIR$/src/selectors/selectors.test.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/store/configureStore.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/store/initialState.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/store/store.test.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tools/srcServer.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tools/startMessage.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tools/testSetup.js" charset="UTF-8" />
