@@ -10,6 +10,8 @@ const Header = () => {
 			<Link to="/about" activeClassName="active">About</Link>
 			{" | "}
 			<Link to="/courses" activeClassName="active">Courses</Link>
+			{" | "}
+			<Link to="/avatar" activeClassName="active">Avatar</Link>
 			<LoadingDots dots={5} duration={300} show={false} />
 		</nav>
 	);
