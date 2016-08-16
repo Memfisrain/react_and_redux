@@ -46,4 +46,4 @@ CourseForm.propTypes = {
   saving: React.PropTypes.bool.isRequired
 };
 
-export default CourseForm
+export default CourseForm;

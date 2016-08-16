@@ -2,61 +2,61 @@ import React from "react";
 import {connect} from "react-redux";
 
 class LoadingDots extends React.Component {
-	constructor(props, context) {
-		super(props, context);
+  constructor(props, context) {
+    super(props, context);
 
-		this.state = {
-			frame: 1,
-			show: props.show
-		};
-	}
+    this.state = {
+      frame: 1,
+      show: props.show
+    };
+  }
 
-	componentWillReceiveProps(nextProps) {
-	    if (this.props.show !== nextProps.show) {
-	    	this.setState({
-	    		frame: this.state.frame,
-	    		show: nextProps.show
-	    	});
+  componentDidMount() {
+    this.setInterval();
+  }
 
-	    	if (nextProps.show) {
-	    		this.setInterval();
-	    	} else {
-	    		this.clearInterval();
-	    	}
-	    }
-	}
+  componentWillReceiveProps(nextProps) {
+    if (this.props.show !== nextProps.show) {
+      this.setState({
+        frame: this.state.frame,
+        show: nextProps.show
+      });
 
-	setInterval() {
-		this.interval = setInterval(() => {
-			this.setState({
-				frame: this.state.frame + 1
-			});
-		}, this.props.duration);
-	}
+      if (nextProps.show) {
+        this.setInterval();
+      } else {
+        this.clearInterval();
+      }
+    }
+  }
 
-	clearInterval() {
-		clearInterval(this.interval);
-	}
+  componentWillUnmount() {
+    this.clearInterval();
+  }
 
-	componentDidMount() {
-		this.setInterval();
-	}
+  setInterval() {
+    this.interval = setInterval(() => {
+      this.setState({
+        frame: this.state.frame + 1
+      });
+    }, this.props.duration);
+  }
 
-	componentWillUnmount() {
-		this.clearInterval();
-	}
+  clearInterval() {
+    clearInterval(this.interval);
+  }
 
-	render() {
-		let dots = this.state.frame % (this.props.dots + 1);
-		let text = "";
+  render() {
+    let dots = this.state.frame % (this.props.dots + 1);
+    let text = "";
 
-		while (dots) {
-			text += ".";
-			dots -= 1;
-		}
+    while (dots) {
+      text += ".";
+      dots -= 1;
+    }
 
-		return <span style={{display: (this.state.show? '' : 'none')}}>{text} </span>
-	}
+    return <span style={{display: (this.state.show? '' : 'none')}}>{text} </span>;
+  }
 }
 
 LoadingDots.propTypes = {
@@ -66,13 +66,13 @@ LoadingDots.propTypes = {
 };
 
 LoadingDots.defaultProps = {
-	duration: 300, dots: 3, show: false
+  duration: 300, dots: 3, show: false
 };
 
 function mapStateToProps(state, ownProps) {
-	return {
-		show: state.ajaxRequestsInProgress > 0
-	}
+  return {
+    show: state.ajaxRequestsInProgress > 0
+  };
 }
 
 export default connect(mapStateToProps)(LoadingDots);

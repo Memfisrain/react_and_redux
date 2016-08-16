@@ -7,11 +7,11 @@ export function loadCoursesSuccess(courses) {
 }
 
 export function deleteCoursesSuccess(courses) {
-  return {type: types.DELETE_COURSES_SUCCESS, courses}
+  return {type: types.DELETE_COURSES_SUCCESS, courses};
 }
 
 export function loadCourseSuccess(course) {
-  return {type: types.LOAD_COURSE_SUCCESS, course}
+  return {type: types.LOAD_COURSE_SUCCESS, course};
 }
 
 export function updateCourseSuccess(course) {
@@ -36,7 +36,7 @@ export function loadCourses() {
         dispatch(AjaxRequestFailure());
         throw error;
       });
-  }
+  };
 }
 
 export function deleteCourses() {
@@ -48,7 +48,7 @@ export function deleteCourses() {
       .catch(error => {
         throw error;
       });
-  }
+  };
 }
 
 export function saveCourse(course) {
@@ -64,7 +64,7 @@ export function saveCourse(course) {
         dispatch(AjaxRequestFailure());
         throw error;
       } );
-  }
+  };
 }
 
 
@@ -78,5 +78,5 @@ export function loadCourse(id) {
       .catch((err) => {
         throw err;
       });
-  }
+  };
 }
