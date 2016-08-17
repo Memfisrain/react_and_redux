@@ -18,8 +18,8 @@ const loadAuthors = () => {
       })
       .catch(error => {
         throw error;
-      })
-  }
+      });
+  };
 };
 
 export default loadAuthors;

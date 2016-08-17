@@ -114,7 +114,7 @@ class CourseApi {
 
   static getCourse(id) {
     return new Promise((resolve, reject) => {
-      var [course] = courses.filter((course) => {
+      let [course] = courses.filter((course) => {
         return course.id === id;
       });
 

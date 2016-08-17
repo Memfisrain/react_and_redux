@@ -6,11 +6,11 @@ const SelectInput = ({name, label, value, defaultOption, options, onChange, erro
     wrapperCls += " has-error";
   }
 
-  let AuthorOption = function(author) {
+  function AuthorOption(author) {
     return (
       <option key={author.id} value={author.id}>{author.text}</option>
     );
-  };
+  }
 
   return (
     <div className={wrapperCls}>
@@ -36,4 +36,4 @@ SelectInput.propTypes = {
   options: React.PropTypes.arrayOf(React.PropTypes.object)
 };
 
-export default SelectInput
+export default SelectInput;
