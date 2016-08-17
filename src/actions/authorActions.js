@@ -6,8 +6,16 @@ export function loadAuthorsSuccess(authors) {
   return {type: types.LOAD_AUTHORS_SUCCESS, authors};
 }
 
+export function addAuthorSuccess(author) {
+  return {type: types.ADD_AUTHOR_SUCCESS, author};
+}
+
+export function updateAuthorSuccess(author) {
+  return {type: types.UPDATE_AUTHOR_SUCCESS, author};
+}
+
 const loadAuthors = () => {
-  return function(dispatch) {
+  return function (dispatch) {
     dispatch(BeginAjaxRequest());
 
     return AuthorApi
@@ -19,6 +27,21 @@ const loadAuthors = () => {
       .catch(error => {
         throw error;
       });
+  };
+};
+
+export const saveAuthor = (author) => {
+  return function (dispatch) {
+    debugger;
+    dispatch(BeginAjaxRequest());
+
+    return AuthorApi
+      .saveAuthor(author)
+      .then(() => {
+        dispatch(AjaxRequestSuccess());
+        author.id? dispatch(updateAuthorSuccess(author)) : dispatch(addAuthorSuccess(author));
+      })
+      .catch()
   };
 };
 

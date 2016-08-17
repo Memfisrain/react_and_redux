@@ -67,7 +67,6 @@ export function saveCourse(course) {
   };
 }
 
-
 export function loadCourse(id) {
   return function (dispatch) {
     return CourseApi
