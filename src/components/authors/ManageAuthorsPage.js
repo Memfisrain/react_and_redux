@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import TextInput from "../common/TextInput.js";
+import AuthorForm from "./AuthorForm";
 import * as AuthorActions from "../../actions/authorActions";
 
 class ManageAuthorsPage extends React.Component {
@@ -10,9 +10,9 @@ class ManageAuthorsPage extends React.Component {
 
     this.state = {
       author: {
-        id: props.author.id,
-        firstName: props.author.firstName,
-        lastName: props.author.lastName
+        id: props.author.id || "",
+        firstName: props.author.firstName || "",
+        lastName: props.author.lastName || ""
       },
       errors: {
         firstName: "",
@@ -41,7 +41,6 @@ class ManageAuthorsPage extends React.Component {
     let isValid = this.validateForm();
 
     if (isValid) {
-      debugger;
       this.props.authorActions.saveAuthor(this.state.author);
     }
   }
@@ -70,22 +69,14 @@ class ManageAuthorsPage extends React.Component {
   }
 
   render() {
+    let state = this.state;
     return (
       <div>
         <h2>Manage Author Page</h2>
-        <form>
-          <TextInput name="firstName"
-                     label="Author First Name"
-                     value={this.state.author.firstName}
-                     error={this.state.errors.firstName}
-                     onChange={this.onAuthorChange} />
-          <TextInput name="lastName"
-                     label="Author Last Name"
-                     value={this.state.author.lastName}
-                     error={this.state.errors.lastName}
-                     onChange={this.onAuthorChange} />
-          <input value="Save Author" type="submit" onClick={this.onAuthorSave}/>
-        </form>
+        <AuthorForm author={state.author}
+                    errors={state.errors}
+                    onAuthorChange={this.onAuthorChange}
+                    onAuthorSave={this.onAuthorSave} />
       </div>
     );
   }
