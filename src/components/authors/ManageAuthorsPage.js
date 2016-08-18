@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import AuthorForm from "./AuthorForm";
 import * as AuthorActions from "../../actions/authorActions";
+import {browserHistory} from "react-router";
 
 class ManageAuthorsPage extends React.Component {
   constructor(props, context) {
@@ -17,7 +18,8 @@ class ManageAuthorsPage extends React.Component {
       errors: {
         firstName: "",
         lastName: ""
-      }
+      },
+      saving: false
     };
 
     this.onAuthorChange = this.onAuthorChange.bind(this);
@@ -38,11 +40,26 @@ class ManageAuthorsPage extends React.Component {
 
   onAuthorSave(e) {
     e.preventDefault();
+    let _this = this;
     let isValid = this.validateForm();
 
     if (isValid) {
-      this.props.authorActions.saveAuthor(this.state.author);
+      this.setState({saving: true});
+
+      this.props.authorActions
+        .saveAuthor(this.state.author)
+        .then(() => {
+          _this.setState({saving: false});
+          _this.redirectToAuthors();
+        })
+        .catch(() => {
+          _this.setState({saving: false});
+        })
     }
+  }
+
+  redirectToAuthors() {
+    browserHistory.push("/authors");
   }
 
   validateForm() {
@@ -59,7 +76,7 @@ class ManageAuthorsPage extends React.Component {
 
     errors.lastName = "";
 
-    if (!author.lastName || author.lastName.length < 4) {
+    if (!author.lastName || author.lastName.length < 3) {
       isValid = false;
       errors.lastName = "Last Name should contain at least 4 characters.";
     }
@@ -75,6 +92,7 @@ class ManageAuthorsPage extends React.Component {
         <h2>Manage Author Page</h2>
         <AuthorForm author={state.author}
                     errors={state.errors}
+                    saving={state.saving}
                     onAuthorChange={this.onAuthorChange}
                     onAuthorSave={this.onAuthorSave} />
       </div>
@@ -88,7 +106,7 @@ function mapStateToProps(state, ownProps) {
 
   return {
     author
-  }
+  };
 }
 
 function mapDispatchToProps(dispatch) {

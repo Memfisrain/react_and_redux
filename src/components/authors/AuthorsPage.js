@@ -4,6 +4,7 @@ import {bindActionCreators} from "redux";
 import {Link} from "react-router";
 import AuthorsList from "./AuthorsList";
 import {deleteAuthor} from "../../actions/authorActions";
+import toastr from "toastr";
 
 class AuthorsPage extends React.Component {
   constructor(props, context) {
@@ -13,10 +14,29 @@ class AuthorsPage extends React.Component {
   }
 
   onAuthorDelete(authorId) {
-    if (authorId) {
-      this.props.deleteAuthor(authorId);
-    } else {
-      console.log("Author cannot be deleted due-to param 'authorId' wasn't be passed.")
+    if (!authorId) {
+      console.log("Author cannot be deleted due-to param 'authorId' wasn't be passed.");
+    }
+
+    if (this.isAuthorHasCourses(authorId)) {
+      toastr.error("Author can't be deleted because he has a courses. Firstly delete author's courses.");
+      return;
+    }
+
+    this.props.deleteAuthor(authorId)
+      .then(() => {
+        toastr.success(`Author ${authorId} has been successfully deleted`);
+      })
+      .catch(() => {
+        toastr.error(`Error occured at deleting author ${authorId}`);
+      });
+  }
+
+  isAuthorHasCourses(authorId) {
+    let courses = this.props.courses;
+
+    if (courses && courses.length) {
+      return !!courses.filter(course => course.authorId === authorId).length;
     }
   }
 
@@ -37,7 +57,8 @@ class AuthorsPage extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    authors: state.authors
+    authors: state.authors,
+    courses: state.courses
   };
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import TextInput from "../common/TextInput";
 
-const AuthorForm = ({author, errors, onAuthorChange, onAuthorSave}) => {
+const AuthorForm = ({author, errors, saving, onAuthorChange, onAuthorSave}) => {
 	return (
 			<form>
         <TextInput name="firstName"
@@ -14,7 +14,7 @@ const AuthorForm = ({author, errors, onAuthorChange, onAuthorSave}) => {
                    value={author.lastName}
                    error={errors.lastName}
                    onChange={onAuthorChange} />
-        <input value="Save Author" type="submit" onClick={onAuthorSave}/>
+        <input className="btn btn-primary" value="Save Author" type="submit" onClick={onAuthorSave} disabled={saving}/>
       </form>
 		);
 };

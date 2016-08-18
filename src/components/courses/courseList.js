@@ -5,16 +5,18 @@
 import React from "react";
 import CourseListRow from "./courseListRow";
 
-
-function createCourse(course) {
-  return <CourseListRow key={course.id} course={course}/>
+function createCourse(onCourseDelete, course) {
+  return <CourseListRow key={course.id} course={course} onCourseDelete={onCourseDelete}/>
 }
 
-export default (obj) => {
+export default ({courses, onCourseDelete}) => {
+  let display = courses && courses.length? "" : "none";
+
   return (
-    <table className="table">
+    <table style={{display}} className="table">
       <thead>
       <tr>
+        <th></th>
         <th></th>
         <th>Title</th>
         <th>Author</th>
@@ -23,7 +25,7 @@ export default (obj) => {
       </tr>
       </thead>
       <tbody>
-      {obj.courses.map(createCourse)}
+      {courses.map(createCourse.bind(null, onCourseDelete))}
       </tbody>
     </table>
   );

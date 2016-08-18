@@ -1,14 +1,16 @@
 import React from "react";
 
 const SelectInput = ({name, label, value, defaultOption, options, onChange, error}) => {
+  console.log(options);
   let wrapperCls = "form-group";
   if (error) {
     wrapperCls += " has-error";
   }
 
-  function AuthorOption(author) {
+  function AuthorOption(author, ind) {
+    console.log(author);
     return (
-      <option key={author.id} value={author.id}>{author.text}</option>
+      <option key={ind} value={author.id}>{author.text}</option>
     );
   }
 

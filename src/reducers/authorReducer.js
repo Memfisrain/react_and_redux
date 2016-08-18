@@ -6,7 +6,6 @@ export default function AuthorReducer(authors = [], action) {
       return action.authors;
 
     case types.UPDATE_AUTHOR_SUCCESS:
-      debugger;
       return [
         ...authors.filter(author => author.id !== action.author.id),
         Object.assign({}, action.author)
