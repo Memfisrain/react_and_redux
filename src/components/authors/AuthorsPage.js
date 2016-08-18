@@ -34,7 +34,7 @@ class AuthorsPage extends React.Component {
 
   isAuthorHasCourses(authorId) {
     let courses = this.props.courses;
-
+    console.log(courses);
     if (courses && courses.length) {
       return !!courses.filter(course => course.authorId === authorId).length;
     }

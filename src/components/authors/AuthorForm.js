@@ -14,7 +14,7 @@ const AuthorForm = ({author, errors, saving, onAuthorChange, onAuthorSave}) => {
                    value={author.lastName}
                    error={errors.lastName}
                    onChange={onAuthorChange} />
-        <input className="btn btn-primary" value="Save Author" type="submit" onClick={onAuthorSave} disabled={saving}/>
+        <input className="btn btn-primary" value={saving? "Saving..." : "Save"} type="submit" onClick={onAuthorSave} disabled={saving}/>
       </form>
 		);
 };
