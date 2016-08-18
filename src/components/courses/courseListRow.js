@@ -2,7 +2,6 @@ import React from "react";
 import {Link} from "react-router";
 
 export default ({course, onCourseDelete}) => {
-  console.log(course);
   return (
     <tr>
       <td><a href="javascript: void(0)" onClick={onCourseDelete.bind(null, course.id)}>delete</a></td>

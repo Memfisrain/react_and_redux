@@ -17,7 +17,8 @@ export class ManageCoursePage extends React.Component {
       course: Object.assign({}, props.course),
       errors: Object.assign({}, props.errors),
       authors: [...props.authors],
-      saving: false
+      saving: false,
+      dirty: false
     };
 
     this.updateCourseState = this.updateCourseState.bind(this);
@@ -30,11 +31,28 @@ export class ManageCoursePage extends React.Component {
     }
   }
 
+  componentDidMount() {
+    if (!this.state.course || !this.state.course.id) {
+      let unsavedCourse = localStorage.getItem("manageCoursePage");
+
+      if (unsavedCourse) {
+        unsavedCourse = JSON.parse(unsavedCourse);
+        this.setState(unsavedCourse, this.courseFormIsValid);
+      }
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.state.dirty) {
+      localStorage.setItem("manageCoursePage", JSON.stringify(this.state))
+    }
+  }
+
   updateCourseState(event) {
     let field = event.target.name;
     let course = this.state.course;
     course[field] = event.target.value;
-    return this.setState({course: course})
+    return this.setState({course: course, dirty: true}, this.courseFormIsValid);
   }
 
   onSave(e) {
@@ -55,11 +73,23 @@ export class ManageCoursePage extends React.Component {
   }
 
   courseFormIsValid() {
+    let state = this.state;
+    let course = state.course;
     let formIsValid = true;
-    let errors = Object.assign({}, this.state.errors);
+    let errors = Object.assign({}, this.state.errors, {title: "", category: "", length: ""});
 
-    if (this.state.course.title.length < 5) {
+    if (course.title.length < 5) {
       errors.title = "Title must be at least 5 characters.";
+      formIsValid = false;
+    }
+
+    if (course.category.length < 5) {
+      errors.category = "Category must be at least 5 characters";
+      formIsValid = false;
+    }
+
+    if (!course.length.match(/^\d+:\d+$/)) {
+      errors.length = "Duration format should be m[m]:s[s]";
       formIsValid = false;
     }
 
@@ -74,6 +104,7 @@ export class ManageCoursePage extends React.Component {
 
   redirect() {
     toastr.success("Course successfully saved");
+    localStorage.removeItem("manageCoursePage");
     this.setState({saving: false});
     this.context.router.push("/courses");
   }
