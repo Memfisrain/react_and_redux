@@ -3,6 +3,8 @@ import TextInput from "../common/TextInput";
 import SelectInput from "../common/SelectInput";
 
 const CourseForm = ({course, allAuthors, errors, onChange, onSave, saving}) => {
+	let isInvalid = Object.keys(errors).some((field) => errors[field].length);
+
 	return (
 		<form>
       <h1>Manage Course</h1>
@@ -16,7 +18,7 @@ const CourseForm = ({course, allAuthors, errors, onChange, onSave, saving}) => {
 				name="authorId"
 				label="Author"
 				value={course.authorId}
-				defaultOption="Select Author"
+				defaultOption=""
 				options={allAuthors}
 				onChange={onChange}
 				error={errors.authorId} />
@@ -32,7 +34,13 @@ const CourseForm = ({course, allAuthors, errors, onChange, onSave, saving}) => {
 				value={course.length}
 				onChange={onChange}
 				error={errors.length} />
-      <input className="btn btn-primary" disabled={saving} type="submit" value={saving? "Saving..." : "Save"} onClick={onSave} />
+			<TextInput
+				name="watchHref"
+				label="Link"
+				value={course.watchHref}
+				onChange={onChange}
+				error={errors.watchHref} />
+      <input className="btn btn-primary" disabled={saving || isInvalid} type="submit" value={saving? "Saving..." : "Save"} onClick={onSave} />
 		</form>
 	);
 };

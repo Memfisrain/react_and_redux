@@ -22,6 +22,7 @@ const SelectInput = ({name, label, value, defaultOption, options, onChange, erro
         <option value={defaultOption}>Select Author</option>
         {options.map(AuthorOption)}
       </select>
+      {error && error.length && <span className="help-block">{error}</span>}
     </div>
   );
 };

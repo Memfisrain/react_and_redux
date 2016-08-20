@@ -9,7 +9,7 @@ function createCourse(onCourseDelete, course) {
   return <CourseListRow key={course.id} course={course} onCourseDelete={onCourseDelete}/>
 }
 
-export default ({courses, onCourseDelete}) => {
+export default ({courses, onCourseDelete, onSortRuleChanged}) => {
   let display = courses && courses.length? "" : "none";
 
   return (
@@ -18,10 +18,10 @@ export default ({courses, onCourseDelete}) => {
       <tr>
         <th></th>
         <th></th>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Length</th>
-        <th>Category</th>
+        <th data-sort-by="title" onClick={onSortRuleChanged}>Title</th>
+        <th data-sort-by="authorId" onClick={onSortRuleChanged}>Author</th>
+        <th data-sort-by="length" onClick={onSortRuleChanged}>Length</th>
+        <th data-sort-by="category" onClick={onSortRuleChanged}>Category</th>
       </tr>
       </thead>
       <tbody>

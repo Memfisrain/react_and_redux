@@ -9,7 +9,8 @@ describe("Manage Course Page", () => {
     const props = {
       authors: [],
       actions: {saveCourse: () => Promise.resolve()},
-      course: {id: "", watchHref: "", title: "", authorId: "", length: "", category: ""}
+      course: {id: "", watchHref: "", title: "", authorId: "", length: "", category: ""},
+      sortBy: "title"
     };
 
     const wrapper = mount(<ManageCoursePage {...props}/>);

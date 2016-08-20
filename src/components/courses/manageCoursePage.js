@@ -8,6 +8,7 @@ import * as actions from "../../actions/courseActions";
 import CourseForm from "./CourseForm";
 import {authorsFormattedForDropdown} from "../../selectors/selectors";
 import toastr from "toastr";
+import {browserHistory} from "react-router";
 
 export class ManageCoursePage extends React.Component {
   constructor(props, context) {
@@ -18,7 +19,8 @@ export class ManageCoursePage extends React.Component {
       errors: Object.assign({}, props.errors),
       authors: [...props.authors],
       saving: false,
-      dirty: false
+      dirty: false,
+      sortBy: "title"
     };
 
     this.updateCourseState = this.updateCourseState.bind(this);
@@ -33,18 +35,18 @@ export class ManageCoursePage extends React.Component {
 
   componentDidMount() {
     if (!this.state.course || !this.state.course.id) {
-      let unsavedCourse = localStorage.getItem("manageCoursePage");
+      let unsavedCourse = window.localStorage && window.localStorage.getItem("unsavedCourse");
 
       if (unsavedCourse) {
         unsavedCourse = JSON.parse(unsavedCourse);
-        this.setState(unsavedCourse, this.courseFormIsValid);
+        this.setState({course: unsavedCourse}, this.courseFormIsValid);
       }
     }
   }
 
   componentWillUnmount() {
     if (this.state.dirty) {
-      localStorage.setItem("manageCoursePage", JSON.stringify(this.state))
+      localStorage && localStorage.setItem("unsavedCourse", JSON.stringify(this.state.course))
     }
   }
 
@@ -76,10 +78,15 @@ export class ManageCoursePage extends React.Component {
     let state = this.state;
     let course = state.course;
     let formIsValid = true;
-    let errors = Object.assign({}, this.state.errors, {title: "", category: "", length: ""});
+    let errors = Object.assign({}, this.state.errors, {title: "", authorId: "", category: "", length: "", watchHref: ""});
 
     if (course.title.length < 5) {
       errors.title = "Title must be at least 5 characters.";
+      formIsValid = false;
+    }
+
+    if (!course.authorId.length) {
+      errors.authorId = "Choose author from the list";
       formIsValid = false;
     }
 
@@ -90,6 +97,11 @@ export class ManageCoursePage extends React.Component {
 
     if (!course.length.match(/^\d+:\d+$/)) {
       errors.length = "Duration format should be m[m]:s[s]";
+      formIsValid = false;
+    }
+
+    if (!course.watchHref.match(/^https*:\/\/.+$/)) {
+      errors.watchHref = "Watch href is incorrect. It should begin with http[s]://";
       formIsValid = false;
     }
 
@@ -104,7 +116,7 @@ export class ManageCoursePage extends React.Component {
 
   redirect() {
     toastr.success("Course successfully saved");
-    localStorage.removeItem("manageCoursePage");
+    localStorage && localStorage.removeItem("unsavedCourse");
     this.setState({saving: false});
     this.context.router.push("/courses");
   }
@@ -137,11 +149,17 @@ function getCourseById(courses, id) {
 
 function mapStateToProps(state, ownProps) {
   let courseId = ownProps.params.id;
-  let course = {title: "", authorId: "", length: "", category: ""};
-  let errors = {title: "", category: "", authorId: "", length: ""};
+  console.log(courseId);
+  let course = {title: "", authorId: "", length: "", category: "", watchHref: ""};
+  let errors = {title: "", authorId: "", length: "", category: "", watchHref: ""};
 
   if (courseId && state.courses.length) {
     let courseById = getCourseById(state.courses, courseId);
+
+    if (!courseById) {
+      browserHistory.push("/courses");
+    }
+
     course = courseById || course;
   }
 
