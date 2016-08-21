@@ -13,14 +13,18 @@ class CoursesPage extends React.Component {
     this.state = {
       courses: [...this.props.courses],
       sortBy: "title",
-      reverse: false
+      reverse: false,
+      numberOfVisibleCourses: 5
     }
+
+    this._COURSES_PER_PAGE = 5;
 
     this.redirectToAddCoursePage = this.redirectToAddCoursePage.bind(this);
     this.onCourseDelete = this.onCourseDelete.bind(this);
     this.sortCourses = this.sortCourses.bind(this);
     this.changeSortRule = this.changeSortRule.bind(this);
     this.revertCourses = this.revertCourses.bind(this);
+    this.loadCourses = this.loadCourses.bind(this);
   }
 
   componentWillReceiveProps(newProps, oldProps) {
@@ -52,7 +56,19 @@ class CoursesPage extends React.Component {
     browserHistory.push("/course");
   }
 
+  loadCourses(e) {
+    e.preventDefault();
+    let visibleCourses = this.state.numberOfVisibleCourses;
+    let newVisibleCourses = visibleCourses + this._COURSES_PER_PAGE;
+
+    newVisibleCourses = newVisibleCourses > this.state.courses.length? this.state.courses.length : newVisibleCourses;
+
+    this.setState({numberOfVisibleCourses: newVisibleCourses});
+  }
+
   changeSortRule(e) {
+    e.preventDefault();
+
     let sortRule = this.state.sortBy;
     let newSortRule = e.target.dataset.sortBy;
 
@@ -71,6 +87,14 @@ class CoursesPage extends React.Component {
       let a = courseA[sortBy];
       let b = courseB[sortBy];
 
+      if (sortBy === "length") {
+        let aVal = a.match(/\d+/)[0];
+        let bVal = b.match(/\d+/)[0];
+
+        a = aVal.length === 2? a : "0" + a;
+        b = bVal.length === 2? b : "0" + b;
+      }
+
       return a > b? 1 : (a === b? 0 : -1);
     });
 
@@ -86,14 +110,19 @@ class CoursesPage extends React.Component {
   }
 
 	render() {
+    let btnDisplay = this.state.numberOfVisibleCourses === this.state.courses.length? "none" : "block";
+
 		return (
 			<div>
         <h1>{this.state.courses.length || "There are no "} Courses</h1>
         <input className="btn btn-primary" type="button" onClick={this.redirectToAddCoursePage} value="Add Course" />
-        <span style={{float: "right"}}>Sort By: {this.state.sortBy}. Reverse: {this.state.reverse? "true" : "false"}</span>
-        <CourseList courses={this.state.courses} 
+        <div className="sort">Sort By: {this.state.sortBy}
+          <div>Reverse: {this.state.reverse? "true" : "false"}</div>
+        </div>
+        <CourseList courses={this.state.courses.slice(0, this.state.numberOfVisibleCourses)} 
                     onCourseDelete={this.onCourseDelete}
                     onSortRuleChanged={this.changeSortRule} />
+        <input style={{display: btnDisplay, margin: "0 auto"}} type="button" className="btn btn-primary" value="Load More Courses" onClick={this.loadCourses}/>
       </div>
 		);
 	}

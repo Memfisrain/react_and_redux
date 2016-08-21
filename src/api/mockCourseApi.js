@@ -43,6 +43,30 @@ const courses = [
     authorId: "cory-house",
     length: "5:10",
     category: "HTML5"
+  },
+  {
+    id: "javascript-fundamentals",
+    title: "Javascript Fundamentals",
+    watchHref: "http://www.pluralsight.com/courses/web-components-shadow-dom",
+    authorId: "scott-allen",
+    length: "3:15",
+    category: "JavaScript"
+  },
+  {
+    id: "async-workflow",
+    title: "Async workflow",
+    watchHref: "http://www.pluralsight.com/courses/web-components-shadow-dom",
+    authorId: "dan-wahlin",
+    length: "13:23",
+    category: "HTML5"
+  },
+  {
+    id: "angular-base",
+    title: "Angular Base",
+    watchHref: "http://www.pluralsight.com/courses/web-components-shadow-dom",
+    authorId: "scott-allen",
+    length: "8:36",
+    category: "JavaScript"
   }
 ];
 
@@ -60,6 +84,16 @@ class CourseApi {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(Object.assign([], courses));
+      }, delay);
+    });
+  }
+
+  static getNumberOfCourses(from, to) {
+    return new Promise((resolve, reject) => {
+      to = to <= courses.length? to : courses.length;
+      
+      setTimeout(() => {
+        resolve( Object.assign([], courses.slice(from, to)) );
       }, delay);
     });
   }

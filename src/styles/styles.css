@@ -13,3 +13,13 @@ a.active {
 nav {
 	padding-top: 20px;
 }
+
+.sort {
+	float: right;
+	width: 200px;
+	padding: 10px;
+	font-size: 16px;
+	font-weight: bold;
+	color:  white;
+	background-color: rgba(0,0,0,.3);
+}

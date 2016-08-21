@@ -20,7 +20,6 @@ export class ManageCoursePage extends React.Component {
       authors: [...props.authors],
       saving: false,
       dirty: false,
-      sortBy: "title"
     };
 
     this.updateCourseState = this.updateCourseState.bind(this);

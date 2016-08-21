@@ -18,10 +18,10 @@ export default ({courses, onCourseDelete, onSortRuleChanged}) => {
       <tr>
         <th></th>
         <th></th>
-        <th data-sort-by="title" onClick={onSortRuleChanged}>Title</th>
-        <th data-sort-by="authorId" onClick={onSortRuleChanged}>Author</th>
-        <th data-sort-by="length" onClick={onSortRuleChanged}>Length</th>
-        <th data-sort-by="category" onClick={onSortRuleChanged}>Category</th>
+        <th><a href="#" data-sort-by="title" onClick={onSortRuleChanged}>Title</a></th>
+        <th><a href="#" data-sort-by="authorId" onClick={onSortRuleChanged}>Author</a></th>
+        <th><a href="#" data-sort-by="length" onClick={onSortRuleChanged}>Length</a></th>
+        <th><a href="#" data-sort-by="category" onClick={onSortRuleChanged}>Category</a></th>
       </tr>
       </thead>
       <tbody>

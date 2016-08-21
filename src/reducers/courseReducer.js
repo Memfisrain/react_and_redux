@@ -14,7 +14,7 @@ export default function courseReducer(courses = initialState.courses, action) {
 
     case types.UPDATE_COURSE_SUCCESS:
     	return [
-        ...courses.filter(course => course.id !== action.course.id),
+        ...courses.filter(course => course.id !== action.course.id).map(course => Object.assign({}, course)),
         Object.assign({}, action.course)
       ];
 
@@ -26,7 +26,7 @@ export default function courseReducer(courses = initialState.courses, action) {
 
     case types.DELETE_COURSE_SUCCESS:
       return [
-        ...courses.filter(course => course.id !== action.courseId)
+        ...courses.filter(course => course.id !== action.courseId).map(course => Object.assign({}, course))
       ];
 
     default:
